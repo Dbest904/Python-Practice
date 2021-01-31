@@ -1,0 +1,11 @@
+import pandas as pd 
+
+df1 = pd.DataFrame({'key: ['K0', 'K1', K2'],
+                'W':['W0', 'W1', 'W2'],
+                'Y': ['Y0', 'Y1', 'Y2']})
+             
+df1 = pd.DataFrame({'key: ['K0', 'K1', K2'],
+                'X':['X0', 'X1', 'X2'],
+                'Z': ['Z0', 'Z1', 'Z2']})
+                
+pd.merge(df1, df2, on = 'key')
