@@ -1,0 +1,33 @@
+# simple function to be tested 
+
+def simple_function(a, b, c):
+    if a is None:
+        raise ValueError("'a' cannot be none.")
+    if isinstance(a, str):
+        return f'Hello, {a}!'
+    if b < 0:
+        return abs(b)
+    if (c % 2) == 0:
+        return 2
+
+    return a + b + c
+
+
+
+#Unit test Function to test my Function 
+
+def test_a_none():
+    try:
+        simple_function(None,1,1)
+    except ValueError:
+        return True
+    assert False 
+
+def test_b_neg():
+    assert simple_function(0, -5, 0) == 5
+
+def test_c_div_2():
+    assert simple_function(0, 0, 4) == 2 
+
+def test_addition():
+    assert simple_function(3, 5, 9) == 17
