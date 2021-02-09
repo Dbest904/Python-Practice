@@ -1,0 +1,27 @@
+url = 'http://weather.gc.ca/rss/city/ns-19_e.xml'
+
+
+# Exception handling 
+try:
+    result = requests.get(url)
+    if result.status_code != 200:
+        raise ConnectionError('Status codde: {}'.format(result.status_code))
+
+# Process  response 
+    conditions_found = False
+    tree = ElementTree.fromstring(result.content)
+    for node in tree.iter():
+        if 'title' in node.tag:
+            if 'Current Conditions' in node.text:
+
+
+# Output the results
+                print (node.text)
+                conditions_found = True
+                break
+
+    if not conditions_found:
+        raise ValueError('No weather conditions found.')
+
+except:
+    print(sys.exc_info())
